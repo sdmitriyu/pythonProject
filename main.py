@@ -1,17 +1,23 @@
-def print_params(a=1, b='строка', c=True):
-    print(a, b, c)
-    print(a, b)
-    print(b, c)
-    print(a, c)
+def test(*args, **kwargs):
+    print(test)
+    print('тип args', type(args))
+    print(args)
+    for i, arg in enumerate(args):
+        print('позиционный параметр', i, arg)
+    print('тип kwargs', type(kwargs))
+    print(kwargs)
+    for i, kwarg in enumerate(kwargs):
+        print('именованный параметр', i, kwarg)
 
-print_params()
 
-def print_params(b=25, c=[1, 2, 3]):
-    print(b, c)
+test(1, "hello", [2, 3, 4], {"a": 5, "b": 6})
 
-print_params()
 
-lst = [1, 'строка', True]
-slr = {'a': 1, 'b': 'строка', 'c': True}
-print_params(*lst)
-print_params(**slr)
+def factorial(n):
+    if n == 1:
+        return 1
+    factorial_n_minus_1 = factorial(n=n - 1)
+    return n * factorial_n_minus_1
+
+
+print(factorial(7))
